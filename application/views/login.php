@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Passenger Login</title>
+    <title>User Login</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
@@ -84,8 +84,9 @@ body {
                                 </div>
                                 <div class="d-sm-flex justify-content-between">
                                     <div class="field-wrapper">
-                                        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign
-                                            In</button>
+                                        <!--<button type="submit" class="btn btn-primary" style="width: 100%;">SignIn</button>-->
+
+                                        <a href="depotadmin_lookup.php" class="btn btn-primary" style="width: 100%;">Sign In</button></a>
                                     </div>
                                 </div>
 
@@ -99,6 +100,7 @@ body {
     </div>
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+
     <?php $this->load->view("common/footer"); ?>
 
 
