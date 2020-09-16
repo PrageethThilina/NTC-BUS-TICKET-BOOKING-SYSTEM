@@ -39,6 +39,10 @@
     background: red;
     color: white;
 }
+.validation_msg{
+    color: red;
+}
+
 </style>
 
 <body class="form" action method="POST">
@@ -64,7 +68,7 @@
                             } 
                         ?>
 
-                        <?php echo validation_errors(); ?>
+                        <?php echo "<h6 class='validation_msg'>" . validation_errors(). "</h6>" ?>
                         <?php echo form_open('Passenger_Controllers/Passenger_Login/register'); ?>
 
                         <form class="text-left">

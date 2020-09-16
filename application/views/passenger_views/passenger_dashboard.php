@@ -26,6 +26,10 @@
     .navbar .navbar-item.navbar-dropdown {
         margin-left: auto;
     }
+
+    .dashboard-menu-item-hover{
+        cursor: pointer;
+    }
     </style>
 
 </head>
@@ -41,6 +45,15 @@
         </div>
     </div>
     <!--  END LOADER -->
+
+    <!-- check whether logged in -->
+    <?php
+        if (!($this->session->userdata('logged_in'))){
+
+            redirect(base_url().'Passenger/login');
+
+        }
+    ?>
 
     <!--  BEGIN NAVBAR  -->
     <div class="header-container fixed-top">
@@ -139,7 +152,7 @@
                     <div class="dropdown-menu position-absolute" aria-labelledby="userProfileDropdown">
                         <div class="">
                             <div class="dropdown-item">
-                                <a class="" id="profile_id"><svg
+                                <a class="dashboard-menu-item-hover" id="profile_id"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="feather feather-user">
@@ -148,7 +161,7 @@
                                     </svg> My Profile</a>
                             </div>
                             <div class="dropdown-item">
-                                <a class="" id="profile_setting_id"><svg
+                                <a class="dashboard-menu-item-hover" id="profile_setting_id"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="feather feather-user">
@@ -157,7 +170,7 @@
                                     </svg> Edit Profile</a>
                             </div>
                             <div class="dropdown-item">
-                                <a class="" id="mail_box_id"><svg
+                                <a class="dashboard-menu-item-hover" id="mail_box_id"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="feather feather-inbox">
@@ -168,7 +181,7 @@
                                     </svg> Inbox</a>
                             </div>
                             <div class="dropdown-item">
-                                <a class="" href="<?php echo base_url('Passenger/login') ?>"><svg
+                                <a href="<?php echo base_url('Passenger/logout') ?>"><svg
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="feather feather-log-out">
@@ -205,7 +218,7 @@
                         </a>
                     </li>
                     <li class="nav-item theme-text">
-                        <a href="passenger_dashboard.html" class="nav-link"> Prageeth </a>
+                        <a href="<?php echo base_url('Passenger/Dashboard') ?>" class="nav-link"> <?php echo $this->session->userdata('ntc_psg_fname'); ?> </a>
                     </li>
                     <li class="nav-item toggle-sidebar">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -221,7 +234,7 @@
                 <ul class="list-unstyled menu-categories" id="accordionExample">
                     <li class="menu active">
                         <a href="<?php echo base_url('Passenger/Dashboard') ?>" aria-expanded="true"
-                            class="dropdown-toggle">
+                            class="dropdown-toggle dashboard-menu-item-hover">
                             <div class="">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -257,14 +270,14 @@
                         </a>
                         <ul class="collapse submenu list-unstyled" id="submenu" data-parent="#accordionExample">
                             <li>
-                                <a id="find_bus_id"> Find Buses </a>
+                                <a class="dashboard-menu-item-hover" id="find_bus_id"> Find Buses </a>
                             </li>
                             <li>
-                                <a id="current_booking_id"> Current Booking Details
+                                <a class="dashboard-menu-item-hover" id="current_booking_id"> Current Booking Details
                                 </a>
                             </li>
                             <li>
-                                <a id="previous_booking_id"> Previous Booking
+                                <a class="dashboard-menu-item-hover" id="previous_booking_id"> Previous Booking
                                     Details </a>
                             </li>
                         </ul>

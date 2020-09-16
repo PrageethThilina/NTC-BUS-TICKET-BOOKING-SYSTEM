@@ -9,7 +9,7 @@ class passenger_login_model extends CI_model {
             'ntc_psg_lname' => $this->input->post('ntc_psg_lname', TRUE),
             'ntc_psg_username' => $this->input->post('ntc_psg_username', TRUE),
             'ntc_psg_email' => $this->input->post('ntc_psg_email', TRUE),
-            'ntc_psg_password' => password_hash($this->input->post('ntc_psg_password', TRUE),PASSWORD_DEFAULT),
+            'ntc_psg_password' => sha1($this->input->post('ntc_psg_password', TRUE)),
             'ntc_psg_registered_at' => date('Y-m-d H:i:s',now())     
         );
          return $this->db->insert('ntc_passengers',$psg_data);
@@ -18,7 +18,7 @@ class passenger_login_model extends CI_model {
     function login_passenger(){
 
         $ntc_psg_username = $this->input->post('ntc_psg_username');
-        $ntc_psg_password = password_verify($this->input->post('ntc_psg_password'),PASSWORD_DEFAULT);
+        $ntc_psg_password = sha1($this->input->post('ntc_psg_password'));
 
         $this->db->where('ntc_psg_username',$ntc_psg_username);
         $this->db->where('ntc_psg_password',$ntc_psg_password);

@@ -45,9 +45,9 @@ class Passenger_Login extends CI_Controller {
 				);
 				
 				$this->session->set_userdata($passenger_data);
-				$this->session->set_flashdata('login_success_msg', 'Login Successful....', 2000);
-				$this->load->view('passenger_views/passenger_dashboard',3000);
-				//redirect(base_url().'Passenger/Dashboard');
+				$this->session->set_flashdata('login_success_msg', 'Login Successful....');
+				//$this->load->view('passenger_views/passenger_dashboard');
+				redirect(base_url().'Passenger/Dashboard');
 			}
 			else{
 				$this->session->set_flashdata('login_errmsg', 'Wrong credentials');
@@ -95,6 +95,20 @@ class Passenger_Login extends CI_Controller {
 				}
 		}
 
-    }
+	}
+	public function Logout(){
+		$this->session->unset_userdata('ntc_psg_id');
+		$this->session->unset_userdata('ntc_psg_username');
+		$this->session->unset_userdata('ntc_psg_fname');
+		$this->session->unset_userdata('ntc_psg_lname');
+		$this->session->unset_userdata('ntc_psg_nic');
+		$this->session->unset_userdata('ntc_psg_avatar');
+		$this->session->unset_userdata('ntc_psg_email');
+		$this->session->unset_userdata('ntc_psg_phone');
+		$this->session->unset_userdata('ntc_psg_address');
+		$this->session->unset_userdata('ntc_psg_registered_at');
+		$this->session->unset_userdata('logged_in');
+		redirect(base_url().'Passenger/login');	
+	}
 
 }
