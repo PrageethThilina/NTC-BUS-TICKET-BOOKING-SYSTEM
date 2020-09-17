@@ -7,11 +7,9 @@
     <title>Depot Admin Profile Settings</title>
     <link rel="icon" type="image/x-icon" href="<?php echo asset_url();?>assets/img/favicon.ico"/>
 
-    <?php $this->load->view("common/header"); ?>
+    <?php $this->load->view("common/admin_header"); ?>
 
 
-    <!----><?php $this->load->view("depot_views/depot_header"); ?>        
-    <!----><?php $this->load->view("depot_views/depot_sidenav"); ?>  
 
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->

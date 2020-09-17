@@ -75,6 +75,20 @@ $route['Passenger/view_bus_seats']    = 'Passenger_Controllers/Passenger_Dashboa
 $route['Passenger/password_recovery']    = 'Passenger_Controllers/Passenger_Dashboard/passenger_password_recovery';
 
 
+//transporter routes 
+$route['transporter/dashboard']                                   = 'transporter_dashboard/dashboard/dashboard';
+$route['transporter/dashboard/buses']                             = 'transporter_dashboard/dashboard/bus';
+$route['transporter/dashboard/buses/bus_view_create/(:any)']      = 'transporter_dashboard/dashboard/bus_view_create/$1';
+$route['transporter/dashboard/drivers']                           = 'transporter_dashboard/dashboard/driver';
+$route['transporter/dashboard/drivers/driver_view_create/(:any)'] = 'transporter_dashboard/dashboard/driver_view_create/$1';
+$route['transporter/dashboard/bookings']                          = 'transporter_dashboard/dashboard/booking';
+$route['transporter/dashboard/reports']                           = 'transporter_dashboard/dashboard/report';
+
+
+
+//ntc routes
+$route['Serviceprovider/login']    = 'ntc_controllers/Ntc_Login/login';
+
 // //transporter routes 
 // $route['transporter/dashboard']    = 'transporter_dashboard/dashboard/dashboard';
 
@@ -93,6 +107,13 @@ $route['Passenger/password_recovery']    = 'Passenger_Controllers/Passenger_Dash
 // $route['Ntc/password_recovery']    = 'ntc_controllers/ntc_dashboard/password_recovery';
 // $route['Ntc/mailbox']    = 'ntc_controllers/ntc_dashboard/mailbox';
 
+$route['Ntc/depotadmin_lookup']    = 'ntc_controllers/ntc_dashboard/depotadmin_lookup';
+$route['Ntc/depotadmin_creation']    = 'ntc_controllers/ntc_dashboard/depotadmin_creation';
+
+
+//depot routes
+//$route['Serviceprovider/login']    = 'depot_controllers/depot_login/login';
+$route['Depot/dashboard']    = 'depot_controllers/depot_dashboard/dashboard';
 // $route['depotadmin_lookup']    = 'ntc_controllers/ntc_dashboard/depotadmin_lookup';
 // $route['depotadmin_creation']    = 'ntc_controllers/ntc_dashboard/depotadmin_creation';
 // $$route['transporter_lookup']    = 'ntc_controllers/ntc_dashboard/transporter_lookup';
@@ -117,6 +138,14 @@ $route['Passenger/password_recovery']    = 'Passenger_Controllers/Passenger_Dash
 // $route['Depot/profile_setting']    = 'depot_controllers/depot_dashboard/profile_setting';
 // $route['Depot/password_recovery']    = 'depot_controllers/depot_dashboard/password_recovery';
 // $route['Depot/mailbox']    = 'depot_controllers/depot_dashboard/mailbox';
+
+
+
+$route['transporter_lookup']    = 'depot_controllers/depot_dashboard/transporter_lookup';
+$route['transporter_creation']    = 'depot_controllers/depot_dashboard/transporter_creation';
+$route['driver_lookup']    = 'depot_controllers/depot_dashboard/driver_lookup';
+$route['driver_creation']    = 'depot_controllers/depot_dashboard/driver_creation';
+$route['passenger_lookup']    = 'depot_controllers/depot_dashboard/passenger_lookup';
 
 // $route['depotadmin_lookup']    = 'depot_controllers/depot_dashboard/depotadmin_lookup';
 // $route['depotadmin_creation']    = 'depot_controllers/depot_dashboard/depotadmin_creation';

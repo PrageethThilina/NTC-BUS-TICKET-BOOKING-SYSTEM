@@ -63,7 +63,7 @@ class depot_dashboard extends CI_Controller {
 	{
 		$this->load->view('depot_views/route_lookup.php');
     }
-    public function depotadmin_creation()
+    public function route_creation()
 	{
 		$this->load->view('depot_views/route_creation.php');
     }

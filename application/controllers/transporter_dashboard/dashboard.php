@@ -33,5 +33,35 @@ class Dashboard extends CI_Controller
     	$this->load->view('access_denied');
     }
 
+    public function bus()
+    {
+    	$this->load->view('transporter_dashboard/bus_master_lookup_view');
+    }
+
+    public function bus_view_create()
+    {
+    	$this->load->view('transporter_dashboard/bus_view_create');
+    }
+
+    public function driver()
+    {
+    	$this->load->view('transporter_dashboard/driver_master_lookup_view');
+    }
+
+    public function driver_view_create()
+    {
+    	$this->load->view('transporter_dashboard/driver_view_create');
+    }
+
+    public function booking()
+    {
+    	$this->load->view('transporter_dashboard/booking_master_lookup');
+    }
+
+    public function report()
+    {
+    	$this->load->view('transporter_dashboard/report_lookup');
+    }
+
 	
 }

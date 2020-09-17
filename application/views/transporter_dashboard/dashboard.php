@@ -5,7 +5,7 @@
 <?php $this->load->view('common/transporter_dashboard/left_navigation'); ?>
 
         <!--  BEGIN CONTENT AREA  -->
-        <div id="content" class="main-content">
+        <div id="content" class="main-content ajax_main_content">
             <div class="layout-px-spacing">
 	                <!-- CONTENT AREA -->
                 <div class="header-container" style="margin-top: 30px">
@@ -201,9 +201,8 @@
                         </div>                                             
                      </div>   
                 </div>
-
-
             </div>
+        </div>
 
                
 
@@ -218,3 +217,23 @@
 <?php $this->load->view('common/transporter_dashboard/trns_footer');?>
 
     
+    <script>
+
+        $('#buses_id').click(function() {
+            $('.ajax_main_content').load("<?php echo base_url('transporter/dashboard/buses') ?>");
+        });
+
+        $('#drivers_id').click(function() {
+            $('.ajax_main_content').load("<?php echo base_url('transporter/dashboard/drivers') ?>");
+        });
+
+        $('#bookings_id').click(function() {
+            $('.ajax_main_content').load("<?php echo base_url('transporter/dashboard/bookings') ?>");
+        });
+
+        $('#reports_id').click(function() {
+            $('.ajax_main_content').load("<?php echo base_url('transporter/dashboard/reports') ?>");
+        });
+
+                
+    </script>

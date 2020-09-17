@@ -10,6 +10,23 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url(); ?>assets/css/users/account-setting.css"
         rel="stylesheet">
 
+    <style>
+        .success_flash_msg {
+            width: 100%;
+            background: green;
+            color: white;
+        }
+
+        .err_flash_msg {
+            width: 100%;
+            background: red;
+            color: white;
+        }
+
+        .validation_msg{
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,7 +37,7 @@
         redirect(base_url() . 'Passenger/login');
 
     }
-?>
+    ?>
 
     <div class="account-settings-container layout-top-spacing">
 
@@ -28,7 +45,22 @@
             <div class="scrollspy-example" data-spy="scroll" data-target="#account-settings-scroll" data-offset="-100">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+
+                        <?php echo "<h6 class='validation_msg'>" . validation_errors(). "</h6>" ?>
+                        <?php echo form_open_multipart('Passenger_Controllers/Passenger_Login/edit_Passenger');?>
+                        <?php if ($this->session->flashdata('success_msg'))
+                            {
+                                echo "<h4 class='text-center success_flash_msg'>".$this->session->flashdata('success_msg')."</h4>";
+                            } 
+                        ?>
+                        <?php if ($this->session->flashdata('error_msg'))
+                            {
+                                echo "<h4 class='text-center err_flash_msg'>".$this->session->flashdata('error_msg')."</h4>";
+                            } 
+                        ?>
+
                         <form id="general-info" class="section general-info">
+
                             <div class="info">
                                 <h6 class="">Profile Details</h6>
                                 <div class="row">

@@ -28,12 +28,11 @@
     <link href="<?php echo asset_url();?>plugins/fullcalendar/custom-fullcalendar.advance.css" rel="stylesheet"
         type="text/css" />
     <link href="<?php echo asset_url();?>plugins/flatpickr/flatpickr.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo asset_url();?>plugins/flatpickr/custom-flatpickr.css" rel="stylesheet" type="text/css" />
 
 
     <link href="<?php echo asset_url();?>plugins/noUiSlider/nouislider.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo asset_url();?>assets/css/scrollspyNav.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo asset_url();?>plugins/flatpickr/custom-flatpickr.css" rel="stylesheet" type="text/css" />
-
     <link href="<?php echo asset_url();?>plugins/bootstrap-range-Slider/bootstrap-slider.css" rel="stylesheet"
         type="text/css" />
 

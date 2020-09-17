@@ -28,7 +28,7 @@
                 <div class="shadow-bottom"></div>
                 <ul class="list-unstyled menu-categories" id="accordionExample">
                     <li class="menu">
-                        <a href="javascript:void(0);" aria-expanded="false" class="dropdown-toggle">
+                        <a href="<?php echo base_url('transporter/dashboard') ?>" aria-expanded="false" class="dropdown-toggle">
                             <div class="">
                                
                                 <span> Home </span>
@@ -36,33 +36,29 @@
                         </a>
                     </li>
                     <li class="menu">
-                        <a href="buses.html" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                               
+                        <a id="buses_id" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">                              
                                 <span> Buses </span>
                             </div>
                         </a>
                     </li>
                     <li class="menu">
-                        <a href="drivers.html" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                                
+                        <a id="drivers_id" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">                               
                                 <span> Drivers </span>
                             </div>
                         </a>
                     </li>
                     <li class="menu">
-                        <a href="bookings.html" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                                
+                        <a id="bookings_id" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">                               
                                 <span> Bookings </span>
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
-                        <a href="rreports.html" aria-expanded="false" class="dropdown-toggle">
-                            <div class="">
-                               
+                    <li class="menu">                       
+                        <a id="reports_id" aria-expanded="false" class="dropdown-toggle">
+                            <div class="">                            
                                 <span> Reports </span>
                             </div>
                         </a>

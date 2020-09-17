@@ -1,0 +1,317 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema ntc_booking_db
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema ntc_booking_db
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `ntc_booking_db` DEFAULT CHARACTER SET utf8 ;
+USE `ntc_booking_db` ;
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`users` (
+  `usr_id` INT NOT NULL AUTO_INCREMENT,
+  `usr_user_name` VARCHAR(45) NOT NULL,
+  `usr_password` VARCHAR(10) NOT NULL,
+  `usr_status` INT NOT NULL,
+  `usr_contact_number` INT(10) NOT NULL,
+  `usr_email` VARCHAR(75) NULL,
+  `usr_created_at` DATETIME NULL,
+  `usr_created_by` INT NULL,
+  `usr_package` VARCHAR(5) NOT NULL,
+  `usr_isDepot_admin` INT NULL DEFAULT 0,
+  `usr_isSupper_admin` INT NULL DEFAULT 0,
+  `usr_isSystem_admin` INT NULL,
+  `usr_avatar` VARCHAR(255) NULL,
+  PRIMARY KEY (`usr_id`),
+  UNIQUE INDEX `username_UNIQUE` (`usr_user_name` ASC),
+  UNIQUE INDEX `contact number_UNIQUE` (`usr_contact_number` ASC),
+  UNIQUE INDEX `email_UNIQUE` (`usr_email` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`passengers`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`passengers` (
+  `psg_id` INT NOT NULL AUTO_INCREMENT,
+  `psg_username` VARCHAR(45) NOT NULL,
+  `psg_password` VARCHAR(45) NOT NULL,
+  `psg_name` VARCHAR(45) NOT NULL,
+  `psg_email` VARCHAR(45) NOT NULL,
+  `psg_avatar` VARCHAR(255) NULL,
+  `psg_contactnumber` VARCHAR(45) NOT NULL,
+  `psg_address` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`psg_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`depots`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`depots` (
+  `dpt_id` INT NOT NULL AUTO_INCREMENT,
+  `dpt_name` VARCHAR(45) NOT NULL,
+  `dpt_code` VARCHAR(45) NULL,
+  PRIMARY KEY (`dpt_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`depot_admins`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`depot_admins` (
+  `dad_id` INT NOT NULL AUTO_INCREMENT,
+  `dpt_id` INT NOT NULL,
+  `dad_name` VARCHAR(45) NOT NULL,
+  `dad_email` VARCHAR(45) NOT NULL,
+  `dad_contactnumber` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`dad_id`),
+  INDEX `fk_depot_admins_depots1_idx` (`dpt_id` ASC),
+  CONSTRAINT `fk_depot_admins_depots1`
+    FOREIGN KEY (`dpt_id`)
+    REFERENCES `ntc_booking_db`.`depots` (`dpt_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`transporters`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`transporters` (
+  `trns_id` INT NOT NULL AUTO_INCREMENT,
+  `dad_id` INT NOT NULL,
+  `trns_name` VARCHAR(45) NOT NULL,
+  `trns_email` VARCHAR(45) NOT NULL,
+  `trns_status` INT NULL,
+  `trns_contactnumber` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`trns_id`),
+  INDEX `fk_transporters_depot_admins1_idx` (`dad_id` ASC),
+  CONSTRAINT `fk_transporters_depot_admins1`
+    FOREIGN KEY (`dad_id`)
+    REFERENCES `ntc_booking_db`.`depot_admins` (`dad_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`buses`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`buses` (
+  `bus_id` INT NOT NULL AUTO_INCREMENT,
+  `dpt_id` INT NOT NULL,
+  `trns_id` INT NOT NULL,
+  `bus_type` VARCHAR(45) NOT NULL,
+  `bus_number` VARCHAR(45) NOT NULL,
+  `bus_brand` VARCHAR(45) NOT NULL,
+  `bus_seat_left` INT NOT NULL,
+  `bus_seat_right` INT NOT NULL,
+  `bus_seat_back` INT NOT NULL,
+  `bus_seat_total` INT NOT NULL,
+  `bus_insuarance` VARCHAR(255) NULL,
+  `bus_license` VARCHAR(255) NULL,
+  `bus_permit` VARCHAR(255) NULL,
+  `busescol` VARCHAR(45) NULL,
+  PRIMARY KEY (`bus_id`),
+  INDEX `fk_buses_transporters1_idx` (`trns_id` ASC),
+  INDEX `fk_buses_depots1_idx` (`dpt_id` ASC),
+  CONSTRAINT `fk_buses_transporters1`
+    FOREIGN KEY (`trns_id`)
+    REFERENCES `ntc_booking_db`.`transporters` (`trns_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_buses_depots1`
+    FOREIGN KEY (`dpt_id`)
+    REFERENCES `ntc_booking_db`.`depots` (`dpt_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`feedbacks`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`feedbacks` (
+  `fdb_id` INT NOT NULL AUTO_INCREMENT,
+  `bus_id` INT NOT NULL,
+  `psg_id` INT NOT NULL,
+  `fdb_datentime` DATETIME NOT NULL,
+  `fdb_subject` VARCHAR(45) NOT NULL,
+  `fdb_message` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`fdb_id`),
+  INDEX `fk_feedbacks_passengers1_idx` (`psg_id` ASC),
+  INDEX `fk_feedbacks_buses1_idx` (`bus_id` ASC),
+  CONSTRAINT `fk_feedbacks_passengers1`
+    FOREIGN KEY (`psg_id`)
+    REFERENCES `ntc_booking_db`.`passengers` (`psg_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_feedbacks_buses1`
+    FOREIGN KEY (`bus_id`)
+    REFERENCES `ntc_booking_db`.`buses` (`bus_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`payments`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`payments` (
+  `pay_id` INT NOT NULL AUTO_INCREMENT,
+  `psg_id` INT NOT NULL,
+  `pay_type` VARCHAR(45) NOT NULL,
+  `pay_datentime` DATETIME NOT NULL,
+  `pay_amount` INT NOT NULL,
+  PRIMARY KEY (`pay_id`),
+  INDEX `fk_payments_passengers1_idx` (`psg_id` ASC),
+  CONSTRAINT `fk_payments_passengers1`
+    FOREIGN KEY (`psg_id`)
+    REFERENCES `ntc_booking_db`.`passengers` (`psg_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`rates`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`rates` (
+  `rts_id` INT NOT NULL AUTO_INCREMENT,
+  `rts_type` VARCHAR(45) NOT NULL,
+  `rts_amount` INT NOT NULL,
+  PRIMARY KEY (`rts_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`routes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`routes` (
+  `rot_id` INT NOT NULL AUTO_INCREMENT,
+  `rts_id` INT NOT NULL,
+  `rot_code` VARCHAR(20) NOT NULL,
+  `rot_name` VARCHAR(155) NOT NULL,
+  `rot_start_loc` INT NOT NULL,
+  `rot_end_loc` INT NOT NULL,
+  `rot_rate` DECIMAL(11,2) NOT NULL,
+  `rot_status` INT NULL,
+  `rot_created_at` DATETIME NULL,
+  `rot_created_by` INT NULL,
+  PRIMARY KEY (`rot_id`),
+  INDEX `fk_routes_rates1_idx` (`rts_id` ASC),
+  CONSTRAINT `fk_routes_rates1`
+    FOREIGN KEY (`rts_id`)
+    REFERENCES `ntc_booking_db`.`rates` (`rts_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`bookings`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`bookings` (
+  `bok_id` INT NOT NULL AUTO_INCREMENT,
+  `dpt_id` INT NOT NULL,
+  `trns_id` INT NOT NULL,
+  `psg_id` INT NOT NULL,
+  `rot_id` INT NOT NULL,
+  `bok_ref_number` VARCHAR(20) NOT NULL,
+  `bok_date_time` DATETIME NULL,
+  `bok_seat_no` VARCHAR(45) NOT NULL,
+  `bok_quantity` INT NOT NULL,
+  `bok_status` VARCHAR(5) NOT NULL,
+  PRIMARY KEY (`bok_id`),
+  INDEX `fk_bookings_routes1_idx` (`rot_id` ASC),
+  INDEX `fk_bookings_passengers1_idx` (`psg_id` ASC),
+  INDEX `fk_bookings_transporters1_idx` (`trns_id` ASC),
+  INDEX `fk_bookings_depots1_idx` (`dpt_id` ASC),
+  CONSTRAINT `fk_bookings_routes1`
+    FOREIGN KEY (`rot_id`)
+    REFERENCES `ntc_booking_db`.`routes` (`rot_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_bookings_passengers1`
+    FOREIGN KEY (`psg_id`)
+    REFERENCES `ntc_booking_db`.`passengers` (`psg_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_bookings_transporters1`
+    FOREIGN KEY (`trns_id`)
+    REFERENCES `ntc_booking_db`.`transporters` (`trns_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_bookings_depots1`
+    FOREIGN KEY (`dpt_id`)
+    REFERENCES `ntc_booking_db`.`depots` (`dpt_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`locations`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`locations` (
+  `loc_id` INT NOT NULL AUTO_INCREMENT,
+  `loc_name` VARCHAR(255) NULL,
+  `loc_status` INT NULL,
+  PRIMARY KEY (`loc_id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`route_time_slots`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`route_time_slots` (
+  `rts_id` INT NOT NULL AUTO_INCREMENT,
+  `rot_id` INT NOT NULL,
+  `rts_start_time` TIME(6) NULL,
+  `rts_end_time` TIME(6) NULL,
+  PRIMARY KEY (`rts_id`),
+  INDEX `fk_route_time_slots_routes_idx` (`rot_id` ASC),
+  CONSTRAINT `fk_route_time_slots_routes`
+    FOREIGN KEY (`rot_id`)
+    REFERENCES `ntc_booking_db`.`routes` (`rot_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `ntc_booking_db`.`drivers`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ntc_booking_db`.`drivers` (
+  `dri_id` INT NOT NULL AUTO_INCREMENT,
+  `trns_id` INT NOT NULL,
+  `dri_name` VARCHAR(45) NOT NULL,
+  `dri_dob` DATETIME NOT NULL,
+  `dri_contact_number` VARCHAR(10) NOT NULL,
+  `dri_nic` VARCHAR(10) NOT NULL,
+  `dri_license` VARCHAR(255) NOT NULL,
+  `dri_status` VARCHAR(45) NULL,
+  `dri_avatar` VARCHAR(255) NULL,
+  PRIMARY KEY (`dri_id`),
+  INDEX `fk_drivers_transporters1_idx` (`trns_id` ASC),
+  CONSTRAINT `fk_drivers_transporters1`
+    FOREIGN KEY (`trns_id`)
+    REFERENCES `ntc_booking_db`.`transporters` (`trns_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

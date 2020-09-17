@@ -4,25 +4,23 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>NTC Profile Settings</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
+    <title>Depot Admin Profile Settings</title>
+    <link rel="icon" type="image/x-icon" href="<?php echo asset_url();?>assets/img/favicon.ico"/>
 
-    <?php $this->load->view("common/header"); ?>
+    <?php $this->load->view("common/admin_header"); ?>
 
 
-    <!----><?php $this->load->view("ntc_views/ntc_header"); ?>        
-    <!----><?php $this->load->view("ntc_views/ntc_sidenav"); ?>  
 
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo asset_url();?>https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="<?php echo asset_url();?>bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo asset_url();?>assets/css/plugins.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!--  BEGIN CUSTOM STYLE FILE  -->
-    <link rel="stylesheet" type="text/css" href="plugins/dropify/dropify.min.css">
-    <link href="assets/css/users/account-setting.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>plugins/dropify/dropify.min.css">
+    <link href="<?php echo asset_url();?>assets/css/users/account-setting.css" rel="stylesheet" type="text/css" />
     <!--  END CUSTOM STYLE FILE  -->
 </head>
 <body class="sidebar-noneoverflow">
@@ -237,11 +235,11 @@
     <!-- END MAIN CONTAINER -->
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-    <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
-    <script src="bootstrap/js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="<?php echo asset_url();?>assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src=<?php echo asset_url();?>"<?php echo asset_url();?>bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo asset_url();?>bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo asset_url();?>plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="<?php echo asset_url();?>assets/js/app.js"></script>
     
     <script>
         $(document).ready(function() {
@@ -253,10 +251,10 @@
 
     <!--  BEGIN CUSTOM SCRIPTS FILE  -->
 
-    <script src="plugins/dropify/dropify.min.js"></script>
-    <script src="plugins/blockui/jquery.blockUI.min.js"></script>
+    <script src="<?php echo asset_url();?>plugins/dropify/dropify.min.js"></script>
+    <script src="<?php echo asset_url();?>plugins/blockui/jquery.blockUI.min.js"></script>
     <!-- <script src="plugins/tagInput/tags-input.js"></script> -->
-    <script src="assets/js/users/account-settings.js"></script>
+    <script src="<?php echo asset_url();?>assets/js/users/account-settings.js"></script>
     <!--  END CUSTOM SCRIPTS FILE  -->
 </body>
 </html>

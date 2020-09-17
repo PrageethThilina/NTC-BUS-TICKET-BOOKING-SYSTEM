@@ -5,7 +5,7 @@
     }
 </style>
 
-<body class="sidebar-noneoverflow">
+
 
     <!--  BEGIN NAVBAR  -->
     <div class="header-container fixed-top">

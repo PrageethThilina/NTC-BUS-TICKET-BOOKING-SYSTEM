@@ -29,7 +29,27 @@
     <link href="<?php echo asset_url();?>assets/css/components/cards/card.css" rel="stylesheet" type="text/css" />
     <!-- END DASHBOARD CUSTOM CSS -->
 
+    <!-- BEGIN BUSES & DRIVERS LOOKUP CUSTOM STYLES -->
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>plugins/table/datatable/datatables.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>plugins/table/datatable/custom_dt_html5.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>plugins/table/datatable/dt-global_style.css">
+    <!-- END BUSES & DRIVERS LOOKUP CUSTOM STYLES -->
+
+
+    <!-- BEGIN REPORTS STYLES -->
+    <link rel="stylesheet" type="text/css" href="assets/css/forms/theme-checkbox-radio.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/forms/switches.css">
+    <!-- END REPORTS STYLES -->
+
+    <!--BEGIN BUS CREATE STYLES -->
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/forms/switches.css">
+    <link href="<?php echo asset_url();?>plugins/notification/snackbar/snackbar.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>plugins/bootstrap-select/bootstrap-select.min.css">
+    <link href="<?php echo asset_url();?>plugins/file-upload/file-upload-with-preview.min.css" rel="stylesheet" type="text/css" />
+    <!-- END BUS CREATE STYLES -->
+
+
 
 </head>
 
-<body>
+<body class="sidebar-noneoverflow">
