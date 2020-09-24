@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">FROM</label>
-                        <select id="inputState" class="form-control selectpicker">
+                        <select  class="selectpicker form-control ">
                             <option selected="">Choose...</option>
                             <option>Colombo</option>
                             <option>Galle</option>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">TO</label>
-                        <select id="inputState" class="form-control selectpicker">
+                        <select  class="form-control selectpicker">
                             <option selected="">Choose...</option>
                             <option>Colombo</option>
                             <option>Galle</option>
@@ -35,13 +35,13 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="inputAddress">DATE</label>
-                        <input id="basicFlatpickr" value="2019-09-04"
-                            class="form-control flatpickr flatpickr-input active" type="text"
+                        <input  value="2019-09-04"
+                            class="form-control flatpickr flatpickr-input active" type="date"
                             placeholder="Select Date..">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputAddress2">BUS TYPE</label>
-                        <select id="inputState" class="form-control selectpicker">
+                        <select  class="form-control selectpicker">
                             <option selected="">Choose...</option>
                             <option>Normal</option>
                             <option>Highway</option>
@@ -56,3 +56,4 @@
         </div>
     </div>
 </div>
+

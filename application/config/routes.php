@@ -59,8 +59,10 @@ $route['translate_uri_dashes'] = FALSE;
 //passenger routes
 $route['index']    = 'Welcome';
 $route['Passenger/login']    = 'Passenger_Controllers/Passenger_Login/load_passenger_login_view';
-$route['Passenger/logout']    = 'Passenger_Controllers/Passenger_Login/Logout';
 $route['Passenger/register']    = 'Passenger_Controllers/Passenger_Login/load_passenger_register_view';
+$route['Passenger/sign-up']    = 'Passenger_Controllers/Passenger_Login/register';
+$route['Passenger/logout']    = 'Passenger_Controllers/Passenger_Login/Logout';
+$route['Passenger/update_profile']    = 'Passenger_Controllers/Passenger_Login/update_passenger_details';
 $route['Passenger/Dashboard']    = 'Passenger_Controllers/Passenger_Dashboard/load_passenger_dashboard_view';
 $route['Passenger/current_bookings']    = 'Passenger_Controllers/Passenger_Dashboard/current_bookings';
 $route['Passenger/find_buses']    = 'Passenger_Controllers/Passenger_Dashboard/find_buses';

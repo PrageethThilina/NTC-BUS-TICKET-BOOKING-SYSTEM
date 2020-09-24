@@ -42,6 +42,9 @@ body {
     background: red;
     color: white;
 }
+.form_validation_error{
+    color: red;
+}
 </style>
 
 <body class="form">
@@ -50,26 +53,22 @@ body {
         <div class="form-form">
             <div class="form-form-wrap">
                 <div class="form-container">
-                    <div class="form-content" style="height: 500px;">
+                    <div class="form-content" style="height: 550px;">
 
                         <h1 class="">Sign In</h1>
                         <p class="">Log in to your account to continue.</p>
 
-                        <?php if ($this->session->flashdata('login_success_msg'))
-                            {
-                                echo "<h4 class='text-center success_flash_msg'>".$this->session->flashdata('login_success_msg')."</h4>";
-                            } 
-                        ?>
-                        <?php if ($this->session->flashdata('login_errmsg'))
-                            {
-                                echo "<h4 class='text-center err_flash_msg'>".$this->session->flashdata('login_errmsg')."</h4>";
-                            } 
-                        ?>
+                        <form class="text-left" role="form" id="loginform" action="<?php echo base_url('Passenger_Controllers/Passenger_Login/login'); ?>">
+                     
+                        <div id="error">
+                            <?php
+                                if(!empty($this->session->flashdata('er')))
+                                    echo '<div class="alert alert-danger"><strong>Login Failed ! </strong><p>'. $this->session->flashdata('er') .'</p></div>';
+                                if(!empty($this->session->flashdata('s')))
+                                    echo '<div class="alert alert-success"><strong>Log Out Successful ! </strong><p>'. $this->session->flashdata('s') .'</p></div>';
+                            ?>
+                        </div>
 
-                        <?php echo validation_errors(); ?>
-                        <?php echo form_open('Passenger_Controllers/Passenger_Login/login'); ?>
-
-                        <form class="text-left">
                             <div class="form">
 
                                 <div  class="field-wrapper input mb-2">
@@ -81,8 +80,10 @@ body {
                                         <circle cx="12" cy="7" r="4"></circle>
                                     </svg>
                                     <input id="ntc_psg_username" name="ntc_psg_username" type="text" class="form-control"
-                                        placeholder="Username">
+                                        placeholder="Username" required>
+                                        <h6 class="form_validation_error text-center"><?php echo form_error('ntc_psg_username') ?></h6>
                                 </div>
+
 
                                 <div id="password-field" class="field-wrapper input mb-2">
                                     <div class="d-flex justify-content-between">
@@ -97,13 +98,14 @@ body {
                                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                     </svg>
                                     <input id="ntc_psg_password" name="ntc_psg_password" type="password" class="form-control"
-                                        placeholder="Password">
+                                        placeholder="Password" required>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" id="toggle-password" class="feather feather-eye">
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>
+                                    <h6 class="form_validation_error text-center"><?php echo form_error('ntc_psg_password') ?></h6>
                                 </div>
                                 <div class="d-sm-flex justify-content-between">
                                     <div class="field-wrapper">
@@ -131,6 +133,43 @@ body {
     <!-- Main js files -->
     <script src="<?php echo asset_url();?>assets/js/authentication/form-2.js"></script>
 
+    <script type="text/javascript">
+    
+    $(document).ready(function()
+    {
+        $("form#loginform").submit(function(e)
+        {
+            var ntc_psg_username = $("#ntc_psg_username").val();
+            var ntc_psg_password = $("#ntc_psg_password").val();          
+    
+            $(".preloader").css('display','block');
+    
+            $.ajax(
+            {
+                type    : "POST",
+                url     : $('form#loginform').attr('action'),
+                data    : { 'ntc_psg_username' : ntc_psg_username, 'ntc_psg_password' : ntc_psg_password},
+                error   : function(){alert('An Error Occurred. Please Try Again Later!')},
+                success : function(data)
+                {
+                    var obj = jQuery.parseJSON(data);
+                    if (obj.status == 0)
+                    {
+                        $("#error").html('<div class="alert alert-danger animated fadeInDown"><strong> '+obj.error+'  </strong></div>');
+                    }
+                    else
+                    {
+                        $("#error").html('<div class="alert alert-success animated fadeInDown"><strong> Logged Successfully! </strong></div>');
+                        window.location.href = "Dashboard";                         
+                    }                    
+                }
+            });  
+            e.preventDefault(); 
+        });
+            
+    });
+    
+    </script>
 
 </body>
 

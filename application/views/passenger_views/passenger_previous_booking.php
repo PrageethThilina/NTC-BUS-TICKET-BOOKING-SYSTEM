@@ -100,43 +100,6 @@
             </div>
         </div>
     </div>
-    <div class="card component-card_4" style="width: 100%;margin-top: 20px;">
-        <div class="card-body">
-            <div class="user-info">
-                <h4 class="card-user_name" style="font-weight: bold;margin-bottom: 30px;">Colombo -
-                    Thangalla 2020-08-02 ( Chandimal Super Line )</h4>
-                <div class="row">
-                    <div class="col-md-8">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>Bus Type</th>
-                                    <td style="padding-left: 40px;">Semi Luxury</td>
-                                </tr>
-                                <tr>
-                                    <th>Bus Number</th>
-                                    <td style="padding-left: 40px;">N/A 8267</td>
-                                </tr>
-                                <tr>
-                                    <th>Route Number</th>
-                                    <td style="padding-left: 40px;">02</td>
-                                </tr>
-                                <tr>
-                                    <th>Seat Number</th>
-                                    <td style="padding-left: 40px;">16</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-md-4">
-                        <h6>LKR 320.00</h6><br>
-                        <h4 style="font-weight: bold;">Total LKR 320.00</h4><br><br>
-                        <a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">Rate Service</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

@@ -28,20 +28,6 @@
 </head>
 
 <style>
-.success_flash_msg {
-    width: 100%;
-    background: green;
-    color: white;
-}
-
-.err_flash_msg {
-    width: 100%;
-    background: red;
-    color: white;
-}
-.validation_msg{
-    color: red;
-}
 
 </style>
 
@@ -59,17 +45,16 @@
 
                         <?php if ($this->session->flashdata('success_msg'))
                             {
-                                echo "<h4 class='text-center success_flash_msg'>".$this->session->flashdata('success_msg')."</h4>";
+                                echo "<h6 class='alert alert-success text-center animated fadeInDown success_flash_msg'>".$this->session->flashdata('success_msg')."<a class='close' data-dismiss='alert' href='<?php echo base_url('Passenger/login') ?>'>"."</h6>";
                             } 
                         ?>
                         <?php if ($this->session->flashdata('error_msg'))
                             {
-                                echo "<h4 class='text-center err_flash_msg'>".$this->session->flashdata('error_msg')."</h4>";
+                                echo "<h6 class='alert alert-danger text-center animated fadeInDown err_flash_msg'>".$this->session->flashdata('error_msg')."</h6>";
                             } 
                         ?>
 
-                        <?php echo "<h6 class='validation_msg'>" . validation_errors(). "</h6>" ?>
-                        <?php echo form_open('Passenger_Controllers/Passenger_Login/register'); ?>
+                        <?php echo form_open('Passenger/sign-up'); ?>
 
                         <form class="text-left">
                             <div class="form">
@@ -86,6 +71,7 @@
                                         </svg>
                                         <input id="ntc_psg_fname" name="ntc_psg_fname" type="text" class="form-control"
                                             placeholder="First name">
+                                            <h6 class="form_validation_error text-center"><?php echo form_error('ntc_psg_fname') ?></h6>
                                     </div>
                                     <div id="username-field" class="field-wrapper input" style="width: 47%;">
                                         <label for="username" style="float:left;">LAST NAME</label>
@@ -97,6 +83,7 @@
                                         </svg>
                                         <input id="ntc_psg_lname" name="ntc_psg_lname" type="text" class="form-control"
                                             placeholder="Last Name">
+                                            <h6 class="form_validation_error text-center"><?php echo form_error('ntc_psg_lname') ?></h6>
                                     </div>
                                 </div>
 
@@ -112,6 +99,7 @@
                                         </svg>
                                         <input id="ntc_psg_username" name="ntc_psg_username" type="text"
                                             class="form-control" placeholder="Username">
+                                            <h6 class="form_validation_error text-center"><?php echo form_error('ntc_psg_username') ?></h6>
                                     </div>
                                     <div id="email-field" class="field-wrapper input" style="width: 47%;">
                                         <label for="email" style="float:left;">EMAIL</label>
@@ -124,6 +112,7 @@
                                         </svg>
                                         <input id="ntc_psg_email" name="ntc_psg_email" type="email" value=""
                                             class="form-control" placeholder="Email">
+                                            <h6 class="form_validation_error text-center"><?php echo form_error('ntc_psg_email') ?></h6>
                                     </div>
                                 </div>
 
@@ -145,6 +134,7 @@
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>
+                                    <h6 class="form_validation_error text-center"><?php echo form_error('ntc_psg_password') ?></h6>
                                 </div>
 
                                 <div id="password-field" class="field-wrapper input mb-2">
@@ -165,6 +155,7 @@
                                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                         <circle cx="12" cy="12" r="3"></circle>
                                     </svg>
+                                    <h6 class="form_validation_error text-center"><?php echo form_error('ntc_psg_cpassword') ?></h6>
                                 </div>
 
                                 <div class="d-sm-flex justify-content-between">
@@ -193,7 +184,19 @@
     <script src="<?php echo asset_url();?>bootstrap/js/bootstrap.js"></script>
     <!-- Main js files -->
     <script src="<?php echo asset_url();?>assets/js/authentication/form-2.js"></script>
+    <script>
 
+        setTimeout(function () { 
+        $('.success_flash_msg').fadeOut('normal');
+
+        }, 3000);
+
+        setTimeout(function () {         
+        $('.err_flash_msg').fadeOut('normal'); 
+        
+        }, 3000);
+
+    </script>
 
 </body>
 

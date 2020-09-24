@@ -5,15 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Available Buses Details</title>
- 
-    <?php $this->load->view("passenger_views/passenger_header"); ?>        
-    <?php $this->load->view("passenger_views/passenger_sidenav"); ?>  
-
-    <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <?php $this->load->view("common/header"); ?>
     
-    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/plugins.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/elements/custom-pagination.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/elements/miscellaneous.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/elements/breadcrumb.css">

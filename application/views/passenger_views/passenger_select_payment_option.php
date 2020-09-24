@@ -7,13 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Select Payment Option</title>
 
-    <?php $this->load->view("passenger_views/passenger_header"); ?>        
-    <?php $this->load->view("passenger_views/passenger_sidenav"); ?>  
-
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-    <?php $this->load->view("common/header"); ?>
     
-    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/plugins.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/forms/theme-checkbox-radio.css">
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
