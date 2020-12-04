@@ -208,7 +208,7 @@ span.red {
   font-size: 15px;
   padding: 8px 10px;
   letter-spacing: 1px;
-  height: calc(1.4em + 1.4rem + 2px);
+  height: calc(1.5em + 1.5rem + 1px);
   padding: .75rem 1.25rem;
   border-radius: 6px; }
   .form-control[type="range"] {
@@ -1544,7 +1544,7 @@ input[disabled], select[disabled], textarea[disabled], input[readonly], select[r
   color: #acb0c3; }
 
 .help-block, .help-inline {
-  color: #555555; }
+  color: #d10e0e; }
 
 .controls {
   position: relative; }

@@ -11,12 +11,12 @@
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="<?php echo asset_url();?>bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo asset_url();?>bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!--Begin fontawesome css-->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="<?php echo asset_url();?>font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+
     <!-- End fontawesome css -->
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/loader.css">
 
@@ -48,6 +48,13 @@
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/users/user-profile.css">
 
     <link href="<?php echo asset_url();?>plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>plugins/table/datatable/datatables.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>plugins/table/datatable/dt-global_style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
 
+    <link href="<?php echo asset_url();?>plugins/dropzone/basic.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo asset_url();?>plugins/dropzone/dropzone.css" rel="stylesheet" type="text/css" />
+
+    <link href="<?php echo asset_url();?>plugins/bootstrapValidator/formValidation.min.css" rel="stylesheet" type="text/css" />
 
 </head>

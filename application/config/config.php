@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-
+date_default_timezone_set('Asia/Colombo');
 $config['base_url'] = 'http://ntc.booking.lk';
 
 
@@ -490,7 +490,7 @@ $config['compress_output'] = FALSE;
 | helper' page of the user guide for information regarding date handling.
 |
 */
-$config['time_reference'] = 'local';
+$config['time_reference'] = 'Asia/Colombo';
 
 /*
 |--------------------------------------------------------------------------
@@ -523,3 +523,6 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+$config['end_date'] = '2020-12-28';
+

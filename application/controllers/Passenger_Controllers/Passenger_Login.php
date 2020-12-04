@@ -3,15 +3,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Passenger_Login extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		
+		$this->load->model('passenger_models/passenger_login_model','Psg_log_Model');
+		$this->load->library('form_validation');
+		$this->load->library('mailjet');
+	}
+
 	public function load_passenger_login_view()
 	{
 		$this->load->view('passenger_login.php');
 	}
+
 	public function load_passenger_register_view()
 	{
 		$this->load->view('passenger_register.php');
 
 	}
+
+	public function lockscreen()
+	{
+		$this->load->view('passenger_lockscreen.php');
+	}	
 	
 	public function login()
     {
@@ -26,7 +41,6 @@ class Passenger_Login extends CI_Controller {
             $ntc_psg_username = $this->input->post('ntc_psg_username');
 			$ntc_psg_password = $this->input->post('ntc_psg_password');
 			
-			$this->load->model('passenger_models/passenger_login_model','Psg_log_Model');
 			$result = $this->Psg_log_Model->can_login($ntc_psg_username,$ntc_psg_password);
 
             if($result)
@@ -75,7 +89,7 @@ class Passenger_Login extends CI_Controller {
 	{
 		$this->form_validation->set_rules('ntc_psg_fname', 'First Name', 'required');
 		$this->form_validation->set_rules('ntc_psg_lname', 'Last Name', 'required');
-		$this->form_validation->set_rules('ntc_psg_username', 'Username', 'trim|required|min_length[5]|max_length[12]',
+		$this->form_validation->set_rules('ntc_psg_username', 'Username', 'trim|required|is_unique[ntc_passengers.ntc_psg_username]|min_length[5]|max_length[12]',
 		array(
 			'required'      => 'You have not provided username.',
 			'is_unique'     => 'This username already exists.'
@@ -86,45 +100,32 @@ class Passenger_Login extends CI_Controller {
 			'is_unique'     => 'This Email already exists.'
 		));
 		$this->form_validation->set_rules('ntc_psg_password', 'Password', 'trim|required|min_length[5]|max_length[15]');
-		$this->form_validation->set_rules('ntc_psg_cpassword', 'Confirm Password', 'trim|required|matches[ntc_psg_password]');
-		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
-		
+		$this->form_validation->set_rules('ntc_psg_cpassword', 'Confirm Password', 'trim|required|matches[ntc_psg_password]');		
+
 		if ($this->form_validation->run() == FALSE)
-		{
-			//redirect(base_url().'Passenger/register');
-			$this->load->view('passenger_register');
-		}
-		else
-		{
-				$this->load->model('passenger_models/passenger_login_model','Psg_reg_Model');
-				$response = $this->Psg_reg_Model->save_passenger();
+        {
+            echo json_encode(array("msg"=>validation_errors(),"status"=>3));
+            die();
+        }
+        else
+        {
+			echo json_encode($this->Psg_log_Model->save_passenger());
 
-				if ($response){
-					$this->session->set_flashdata('success_msg','Registration Successful.. Please Login');
-					redirect(base_url().'Passenger/register');					
-
-				}
-				else{
-					$this->session->set_flashdata('error_msg','Something went Wrong..!!!');
-					redirect(base_url().'Passenger/register');
-					//redirect(base_url().'Passenger/register');
-				}
 		}
 
 	}
+
+	function fetch_passenger_details()
+	{
+		echo json_encode($this->Psg_log_Model->fetch_passenger_details());
+	}
+
 	public function Logout(){
-		$this->session->unset_userdata('ntc_psg_id');
-		$this->session->unset_userdata('ntc_psg_username');
-		$this->session->unset_userdata('ntc_psg_fname');
-		$this->session->unset_userdata('ntc_psg_lname');
-		$this->session->unset_userdata('ntc_psg_nic');
-		$this->session->unset_userdata('ntc_psg_avatar');
-		$this->session->unset_userdata('ntc_psg_email');
-		$this->session->unset_userdata('ntc_psg_phone');
-		$this->session->unset_userdata('ntc_psg_address');
-		$this->session->unset_userdata('ntc_psg_registered_at');
-		$this->session->unset_userdata('logged_in');
-		redirect(base_url().'Passenger/login');	
+
+		$this->load->library('session');
+		$this->session->sess_destroy();	
+		redirect(base_url().'Passenger/login');
+	
 	}
 
 	public function update_passenger_details(){
@@ -135,24 +136,20 @@ class Passenger_Login extends CI_Controller {
 		array(
 			'required'      => 'You have not provided username.',
 		));
-		$this->form_validation->set_rules('ntc_psg_email', 'Email', 'required|valid_email',
-		array(
-			'required'      => 'You have not provided Email.',
-		));
-		$this->form_validation->set_rules('ntc_psg_address', 'Address', 'required');
-		$this->form_validation->set_rules("ntc_psg_phone", "Mobile Number", 'required|numeric|min_length[10]|max_length[10]');
-		$this->form_validation->set_rules("ntc_psg_nic", "NIC", 'required|min_length[10]|max_length[11]');
+		$this->form_validation->set_rules('ntc_psg_email', 'Email', 'valid_email');
+		$this->form_validation->set_rules('ntc_psg_address', 'Address');
+		$this->form_validation->set_rules("ntc_psg_phone", "Mobile Number", 'numeric|min_length[10]|max_length[10]');
+		$this->form_validation->set_rules("ntc_psg_nic", "NIC", 'min_length[10]|max_length[11]');
 
 		
         if ($this->form_validation->run() == FALSE)
         {
             echo json_encode(array("msg"=>validation_errors(),"status"=>3));
-            die();
+	        die();
         }
         else
         {
-            echo ("Done");
-
+            echo json_encode($this->Psg_log_Model->update_passenger_profile());
 		}
 		
 

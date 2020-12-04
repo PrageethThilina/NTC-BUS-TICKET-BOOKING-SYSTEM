@@ -12,8 +12,7 @@
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="<?php echo asset_url();?>bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        type="text/css" />
+    <link href="<?php echo asset_url();?>font-awesome/css/all.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo asset_url();?>assets/css/components/cards/card.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo asset_url();?>assets/css/homepage_custom_style.css" rel="stylesheet" type="text/css">
 
@@ -64,41 +63,26 @@
             <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
             <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
         </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active" style="height: 500px">
-                <img class="d-block w-100" src="<?php echo asset_url();?>assets/img/img3.1.jpg" alt="First slide"
-                    style="height:500px">
-                <div class="carousel-caption d-none d-sm-block">
-                    <h3>To Develop an Effective Transportation Network!</h3>
-                    <h5>Ensure a quality, cost effective and safe integrated transport system and services that will
-                        provide for
-                        the socio-economic development across the country and the different mobility requirements of
-                        every
-                        individual and corporate citizen of Sri Lanka.</h5>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <img class="d-block img img-fluid" src="<?php echo asset_url();?>assets/img/img3.1.jpg" alt="First slide">
+                <div class="carousel-caption d-md-block">
+                    <h6>To Develop an Effective Transportation Network!</h6>
+                    <p style="font-size:15px">Ensure a quality, cost effective and safe integrated transport system and services for the citizen in Sri Lanka.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo asset_url();?>assets/img/img3.2.jpg" alt="Second slide"
-                    style="height:500px">
-                <div class="carousel-caption d-none d-sm-block">
-                    <h3>To Develop an Effective Transportation Network!</h3>
-                    <h5>Ensure a quality, cost effective and safe integrated transport system and services that will
-                        provide for
-                        the socio-economic development across the country and the different mobility requirements of
-                        every
-                        individual and corporate citizen of Sri Lanka.</h5>
+                <img class="d-block img img-fluid" src="<?php echo asset_url();?>assets/img/img3.1.jpg" alt="Second slide">
+                <div class="carousel-caption d-md-block">
+                    <h6>To Develop an Effective Transportation Network!</h6>
+                    <p style="font-size:15px">Ensure a quality, cost effective and safe integrated transport system and services for the citizen in Sri Lanka.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo asset_url();?>assets/img/img3.1.jpg" alt="Third slide"
-                    style="height:500px">
-                <div class="carousel-caption d-none d-sm-block">
-                    <h3>To Develop an Effective Transportation Network!</h3>
-                    <h5>Ensure a quality, cost effective and safe integrated transport system and services that will
-                        provide for
-                        the socio-economic development across the country and the different mobility requirements of
-                        every
-                        individual and corporate citizen of Sri Lanka.</h5>
+                <img class="d-block img img-fluid" src="<?php echo asset_url();?>assets/img/img3.1.jpg" alt="Third slide">
+                <div class="carousel-caption d-md-block">
+                    <h6>To Develop an Effective Transportation Network!</h6>
+                    <p style="font-size:15px">Ensure a quality, cost effective and safe integrated transport system and services for the citizen in Sri Lanka.</p>
                 </div>
             </div>
         </div>
@@ -114,58 +98,48 @@
 
     <div class="container container1">
         <div class="row">
-            <div class="col-md-8">
-                <h3 class="text-center">Facilities</h3>
+            <div class="col-md-8 col-lg-8 col-sm-4" style="padding-bottom: 20px;">
+                <h3 class="text-center" style="font-weight:normal;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Facilities</h3>
                 <hr>
                 <div class="row">
-                    <div class="col-md-4" style="margin-right: 60px;">
+                    <div class="col-6">
                         <div class="card component-card_1">
                             <div class="card-body">
-                                <div>
-                                    <i class="fa fa-bus" style="margin-left: 40%;font-size: 50px;"></i>
-                                </div>
-                                <h5 class="card-title">All Travel Partners in one Platform</h5>
+                                <i class="fa fa-bus text-center" style="margin-bottom: 20px;font-size: 50px;">
+                                <h5 class="card-title text-center" style="margin-top:10px">All Travel Partners in one Platform</h5></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4" style="margin-right: 60px;">
+                    <div class="col-6">
                         <div class="card component-card_1">
                             <div class="card-body">
-                                <div>
-                                    <i class="fa fa-calendar" style="margin-left: 40%;font-size: 50px;"></i>
-                                </div>
-                                <h5 class="card-title">100% successfull live bookings</h5>
+                                <i class="fa fa-calendar text-center" style="margin-bottom: 20px;font-size: 50px;">
+                                <h5 class="card-title text-center" style="margin-top:10px">100% successfull live bookings</h5></i>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
                 <div class="row" style="margin-top: 10px;">
-                    <div class="col-md-4" style="margin-right: 60px;">
+                    <div class="col-6">
                         <div class="card component-card_1">
                             <div class="card-body">
-                                <div>
-                                    <i class="fa fa-shield" style="margin-left: 40%;font-size: 50px;"></i>
-                                </div>
-                                <h5 class="card-title">Payment Security</h5>
+                                <i class="fas fa-dollar-sign text-center"
+                                    style="margin-bottom: 20px;font-size: 50px;">
+                                <h5 class="card-title" style="margin-top:10px">100% Payment Security</h5></i>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4" style="margin-right: 60px;">
+                    <div class="col-6">
                         <div class="card component-card_1">
                             <div class="card-body">
-                                <div>
-                                    <i class="fa fa-clock-o" style="margin-left: 40%;font-size: 50px;"></i>
-                                </div>
-                                <h5 class="card-title">24hrs Customer care</h5>
+                                <i class="fas fa-clock text-center" style="margin-left: 20px;margin-bottom: 20px;font-size: 50px;">
+                                <h5 class="card-title" style="margin-top:10px">24hrs Customer care</h5></i>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-lg-4 col-sm-4">
                 <div class="card component-card_1" style="border: 1px solid rgb(87, 25, 25);">
                     <div class="card-header" style="background: rgb(148, 41, 41);color: white;">
                         Quick Contact
@@ -184,12 +158,11 @@
                                 <h6>General Line 0112587372</h6>
                             </span></i>
 
-            <a class="btn btn-primary" href="<?php echo base_url() ?>Passenger/login">Online Seat Booking</a>
-            <a class="btn btn-primary" href="<?php echo base_url() ?>Serviceprovider/login">Service Provider</a>
+                        <a class="btn btn-primary" href="<?php echo base_url() ?>Passenger/login">Online Seat
+                            Booking</a>
 
-
-                        <div>
-                            <i class="fa fa-phone" style="font-size: 50px;">1919 Ask</i>
+                        <div style="margin-top:20px">
+                            <i class="fa fa-phone" style="font-size: 40px;">1919 Ask</i>
                         </div>
                     </div>
                 </div>
@@ -197,45 +170,45 @@
         </div>
         <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
             <div class="col">
-                <h3 class="text-center" style="margin-bottom: 30px;">Partnered Bus Service Providers</h3>
+                <h3 class="text-center" style="margin-bottom: 30px;font-weight:normal;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Partnered Bus Service Providers</h3>
                 <div class="row" style="margin-bottom: 20px;">
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s1.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s1.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s2.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s2.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s3.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s3.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s4.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s4.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s5.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s5.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s6.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s6.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s7.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s7.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s8.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s8.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s9.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s9.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s10.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s10.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s11.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s11.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
-                    <div class="col-md-2">
-                        <img src="<?php echo asset_url();?>assets/img/s12.png" width="100px" height="100px" alt="">
+                    <div class="col-2">
+                        <img src="<?php echo asset_url();?>assets/img/s12.png" class="img img-fluid" width="100px" height="100px" alt="">
                     </div>
                 </div>
             </div>
@@ -345,16 +318,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6" data-aos="flip-right" style="padding-left: 50px;">
-                    <p class="contact-para"><strong class="contact-strong">Phone :</strong><span
-                            style="margin-left: 65px;">General : +94
+                <div class="col-lg-6 col-md-6 col-sm-6" data-aos="flip-right">
+                    <p class="contact-para"><strong class="contact-strong">Phone :</strong><span>+94
                             011-2587372<br>
                         </span></p><br>
                     <p class="contact-para"><strong class="contact-strong">Email : </strong><a
-                            href="mailto:name@example.com"><span
-                                style="color:#fff;margin-left: 65px;">info@ntc.gov.lk</span></a></p>
-                    <p class="contact-para"><strong class="contact-strong">Address : </strong><span
-                            class="abcde">National
+                            href="mailto:name@example.com"><span style="color:#fff">info@ntc.gov.lk</span></a></p>
+                    <p class="contact-para"><strong class="contact-strong">Address : </strong><span>National
                             Transport Commision<br>
                             No 241<br>Park Road<br>Colombo 05<br>Sri Lanka.</span></p>
                     <iframe class="map"
@@ -371,11 +341,11 @@
         </div>
     </section>
 
-<!-- Main js files -->
-<script src="<?php echo asset_url();?>assets/js/libs/jquery-3.1.1.min.js"></script>
-<script src="<?php echo asset_url();?>bootstrap/js/popper.min.js"></script>
-<script src="<?php echo asset_url();?>bootstrap/js/bootstrap.js"></script>
-<!-- Main js files -->
+    <!-- Main js files -->
+    <script src="<?php echo asset_url();?>assets/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="<?php echo asset_url();?>bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo asset_url();?>bootstrap/js/bootstrap.js"></script>
+    <!-- Main js files -->
 
 
 </body>

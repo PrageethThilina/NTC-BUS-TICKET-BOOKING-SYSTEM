@@ -19,7 +19,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         type="text/css" />
     <!-- End fontawesome css -->
-    <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/plugins.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/authentication/form-2.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/forms/theme-checkbox-radio.css">
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url();?>assets/css/forms/switches.css">
@@ -28,7 +27,7 @@
 </head>
 <style>
 body {
-    background-image: url("../../theme/assets/img/img3.2.jpg");
+    background-image: url("../../theme/assets/img/img3.1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -44,6 +43,12 @@ body {
 }
 .form_validation_error{
     color: red;
+}
+.feather{
+    padding-bottom: 8px;
+}
+.btn{
+    height: 42px;
 }
 </style>
 
@@ -63,9 +68,9 @@ body {
                         <div id="error">
                             <?php
                                 if(!empty($this->session->flashdata('er')))
-                                    echo '<div class="alert alert-danger"><strong>Login Failed ! </strong><p>'. $this->session->flashdata('er') .'</p></div>';
+                                    echo '<div class="alert animated fadeInDown alert-danger"><strong>Login Failed ! </strong><p>'. $this->session->flashdata('er') .'</p></div>';
                                 if(!empty($this->session->flashdata('s')))
-                                    echo '<div class="alert alert-success"><strong>Log Out Successful ! </strong><p>'. $this->session->flashdata('s') .'</p></div>';
+                                    echo '<div class="alert animated fadeInDown alert-success"><strong>Log Out Successful ! </strong><p>'. $this->session->flashdata('s') .'</p></div>';
                             ?>
                         </div>
 

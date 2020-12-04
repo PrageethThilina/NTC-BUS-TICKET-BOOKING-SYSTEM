@@ -10,15 +10,11 @@ section.foot{
 }
 .contact-para{
     font-size: 15px;
-	letter-spacing: 1px;
     font-weight: normal;
-    padding-bottom: 10px;
-    line-height: 29px;
     color: #fff;
 }
 .contact-strong{
     font-family: 'Federo', sans-serif;
-    letter-spacing: 1.5px;
     color: #ffce14!important;
 	font-size: 16px;
     font-weight:bold;
@@ -31,7 +27,6 @@ section.foot{
 	padding-bottom:20px;
     text-align:center;
     padding-top: 20px;
-    font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .contact-p1{
@@ -82,14 +77,6 @@ section.foot{
      color: #ffce14;
      font-size: 16px;
      font-weight: bold;
-}
-.abcd{
-    float: right;
-    margin-right: 29%;
-}
-.abcde{
-    float: right;
-    margin-right: 40%;
 }
 .col-md-6{
     background-color: rgba(0, 0, 0, 0.7);
